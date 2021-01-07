@@ -44,20 +44,21 @@ public class ClassIA {
 			 *  Se il nome termina per 'o' oppure per 'e' maschio 
 			 *  Se termina con altra lettera risponde "ciao ciao".
 			 */
-			 if ( risposta.equalsIgnoreCase("tobia") ||
-				  risposta.equalsIgnoreCase("andrea") || 
-				  risposta.charAt(risposta.length()-1)=='o' ||
-				  risposta.charAt(risposta.length()-1)=='O' ||
-				  risposta.charAt(risposta.length()-1)=='e' ||
-				  risposta.charAt(risposta.length()-1)=='E') {
-				 System.out.println("Buongiorno signor "+risposta);
-			 } else if ( risposta.charAt(risposta.length()-1)=='a' || 
-					  risposta.charAt(risposta.length()-1)=='A' ) {
-					 System.out.println("Buongiorno signora "+risposta);
-			 } else {
-				 System.out.println("Ciao ciao");
-				 
-			 }
+			   // si continua anche qui
+			   String nome=risposta.toLowerCase().replaceFirst(""+risposta.toLowerCase().charAt(0), ""+risposta.toUpperCase().charAt(0));
+				// O anche: 
+			    //String nome = risposta.substring(0, 1).toUpperCase() + risposta.substring(1).toLowerCase();
+		
+				if ( nome.equalsIgnoreCase("tobia") ||
+					 nome.equalsIgnoreCase("andrea") || 
+					 nome.charAt(nome.length()-1)=='o' ||
+					 nome.charAt(nome.length()-1)=='e') {
+					System.out.println("Buongiorno signor "+nome);
+				} else if ( nome.charAt(nome.length()-1)=='a' ) {
+					System.out.println("Buongiorno signora "+nome);
+				} else {
+					System.out.println("Ciao ciao");
+				}
 		}
 
 	}
